@@ -6,13 +6,14 @@ Arduino2java-wide constants.*/
 
 #define A2J_OVERHEAD 5 /**< Number of protocol (i.e. non-payload) bytes in arduino2j packets.*/
 #define A2J_MAX_PAYLOAD 255 /**< Maximum number of bytes to be transmitted as payload in arduino2j packets.*/
-#define A2J_BUFFER (A2J_OVERHEAD + 2 * A2J_MAX_PAYLOAD) /**< Number of bytes the buffer in a j2a_handle can hold.*/
+#define A2J_BUFFER (A2J_OVERHEAD + 2 * A2J_MAX_PAYLOAD) /**< Number of bytes a transport buffer needs to be able to handle.*/
 #define A2J_TIMEOUT 10 /**< Timeout for single byte reads from the stream (in milliseconds). */
 
 /** @addtogroup j2aframing java2arduino framing characters
 \see \ref framing */
 //@{
 #define A2J_SOF 0x12 /**< Start of frame.*/
+#define A2J_SOS 0xED /**< Start of server-initiated frame (SIF).*/
 #define A2J_ESC 0x7D /**< Escape character.*/
 //@}
 
@@ -34,15 +35,16 @@ Arduino2java-wide constants.*/
 #define A2J_RET_OOB 0xF0 /**< Out of bounds of the arduino2j jump table.*/
 #define A2J_RET_TO 0xF2 /**< Timeout while waiting for a byte.*/
 #define A2J_RET_CHKSUM 0xF3 /**< Checksum error.*/
+#define A2J_RET_ESC 0xF4 /**< Unescaped special bytes.*/
 //@}
 
-#define A2J_USB_VENDORID	0x6666
-#define A2J_USB_PRODUCTID	0xCAFE
-#define A2J_USB_RELEASENUMBER	0xBABF
+#define A2J_USB_VENDORID		0x6666
+#define A2J_USB_PRODUCTID		0xCAFE
+#define A2J_USB_RELEASENUMBER	0xBAC0
 
-#define A2J_USB_IF_CLASS		0xff
-#define A2J_USB_IF_SUBCLASS	0x12
-#define A2J_USB_IF_PROTOCOL	0xef
+#define A2J_USB_IF_CLASS		0xFF
+#define A2J_USB_IF_SUBCLASS		0x12
+#define A2J_USB_IF_PROTOCOL		0xEF
 
 #ifdef LIBUSB_H
 	#define A2J_USB_IN_ADDR		(LIBUSB_ENDPOINT_IN | 1)
