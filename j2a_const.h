@@ -4,6 +4,10 @@ Arduino2java-wide constants.*/
 #ifndef A2J_CONST_H
 #define A2J_CONST_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define A2J_OVERHEAD 5 /**< Number of protocol (i.e. non-payload) bytes in arduino2j packets.*/
 #define A2J_MAX_PAYLOAD 255 /**< Maximum number of bytes to be transmitted as payload in arduino2j packets.*/
 #define A2J_BUFFER (A2J_OVERHEAD + 2 * A2J_MAX_PAYLOAD) /**< Number of bytes a transport buffer needs to be able to handle.*/
@@ -53,6 +57,10 @@ Arduino2java-wide constants.*/
 	#define A2J_USB_IN_ADDR		(ENDPOINT_DIR_IN | 1)
 	#define A2J_USB_OUT_ADDR	(ENDPOINT_DIR_OUT | 2)
 	#define A2J_USB_C_EPSIZE	FIXED_CONTROL_ENDPOINT_SIZE
+#endif
+
+#ifdef __cplusplus
+}
 #endif
 
 #endif // A2J_CONST_H
