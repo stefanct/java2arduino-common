@@ -32,6 +32,10 @@ extern "C" {
 //@{
 #define A2J_MANY_HEADER 6 /**< Number of bytes of the a2jMany header. Consisting of the function offset, isLast and 4B offset.*/
 #define A2J_MANY_PAYLOAD (A2J_MAX_PAYLOAD - A2J_MANY_HEADER) /**< Maximum number of bytes to be transmitted as payload in a2jMany packets.*/
+#define A2J_MANY_ISLAST_BIT 0
+#define A2J_MANY_ISLAST_MASK (1<<A2J_MANY_ISLAST_BIT)
+#define A2J_MANY_ISWRITE_BIT 1
+#define A2J_MANY_ISWRITE_MASK (1<<A2J_MANY_ISWRITE_BIT)
 //@}
 
 /** @addtogroup j2aerrors java2arduino error values */
